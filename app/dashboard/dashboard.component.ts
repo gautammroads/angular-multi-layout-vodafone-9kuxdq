@@ -20,7 +20,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
       recovery: 154
       
      
-     
+
     },
     'Ethereal Moodmorph': {
       name: 'Angular',
@@ -190,7 +190,9 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   }
 
   levelUp(heroName: string) {
+    
   this.router.navigateByUrl('/profile');
+
   }
 
 }
