@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
+
 
 
 
@@ -17,7 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 //import { TraineeComponent } from './trainee/trainee.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -31,7 +31,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { routing } from './app.routing';
 
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing , HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
+  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing, HttpClientModule,CdkTableModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
  
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent ],
   bootstrap:    [ AppComponent ]
