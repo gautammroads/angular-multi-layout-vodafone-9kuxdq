@@ -6,12 +6,12 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { MessageModel } from './MessageModel';
+import { Message } from './message';
 
 
 
 @Injectable()
-export class HeroesService {
+export class DashboardService {
   heroesUrl = 'http://localhost:8082/OnPremPoc/get';  // URL to web api
   
 
@@ -21,10 +21,15 @@ export class HeroesService {
   }
 
   /** GET heroes from the server */
-  getHeroes (): Observable<MessageModel> {
-    return this.http.get<MessageModel>(this.heroesUrl);
+  getHeroes (): Observable<Message> {
+    return this.http.get<Message>(this.heroesUrl);
   }
 
+
+ /** GET heroes from the server */
+  getMessage (): Observable<Message> {
+    return this.http.get<Message>(this.heroesUrl);
+  }
   
 }
 

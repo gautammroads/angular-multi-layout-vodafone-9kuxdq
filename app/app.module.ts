@@ -27,11 +27,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+
 import { routing } from './app.routing';
 
 @NgModule({
-  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
-  providers: [],
+  imports:      [ BrowserModule, ReactiveFormsModule,FormsModule, routing , HttpClientModule ,CdkTableModule,HttpModule,BsDatepickerModule.forRoot(),NgbModule.forRoot()],
+ 
   declarations: [ AppComponent, HelloComponent, AppLayoutComponent, SiteLayoutComponent, AppHeaderComponent, SiteHeaderComponent, SiteFooterComponent,AboutComponent, LoginComponent, HomeComponent,  RegisterComponent,ProfileComponent,DashboardComponent ],
   bootstrap:    [ AppComponent ]
 })

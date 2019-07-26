@@ -1,4 +1,5 @@
-export interface MessageModel {
+export interface Message {
+
   messageId: number;
   messageContents: string;
   messageSource: string;

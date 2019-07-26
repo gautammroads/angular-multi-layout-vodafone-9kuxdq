@@ -3,12 +3,16 @@ import { BehaviorSubject, combineLatest } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { Message } from './message';
+import { DashboardService } from './dashboard.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
+  providers: [ DashboardService ],
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  msg: Message;
   
 heroes$ = new BehaviorSubject<{[name: string]: any}>({
     'Hammerer Maccabeus': {
@@ -98,7 +102,8 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
   sortKey$ = new BehaviorSubject<string>('name');
   sortDirection$ = new BehaviorSubject<string>('asc');
 
- constructor(private router: Router) {}
+ constructor(private router: Router,dashboardService: DashboardService) {}
+ 
 
   ngOnInit() {
     this.heroes$.subscribe(changedHeroData => {
@@ -175,6 +180,7 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     this.searchFormControl.setValue('');
   }
 
+ 
   adjustSort(key: string) {
     if (this.sortKey$.value === key) {
       if (this.sortDirection$.value === 'asc') {
@@ -189,8 +195,13 @@ heroes$ = new BehaviorSubject<{[name: string]: any}>({
     this.sortDirection$.next('asc');
   }
 
+
+   getMessage(): void {
+    this.dashboardService.getMessage().subscribe(message=> this.msg=message);
+  }
+
   levelUp(heroName: string) {
-    
+  this.getMessage()
   this.router.navigateByUrl('/profile');
 
   }
